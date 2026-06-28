@@ -194,8 +194,6 @@ async def not_joined(client: Client, message: Message):
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None)
                             link = invite.invite_link
 
-                    buttons = []
-                    count = 0
 
                     for name, link in channels:
                         buttons.append([
