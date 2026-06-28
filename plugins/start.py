@@ -194,17 +194,13 @@ async def not_joined(client: Client, message: Message):
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None)
                             link = invite.invite_link
 
-                    buttons.append([
-                        InlineKeyboardButton("• 𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 •", url=link),
-                        InlineKeyboardButton(
-                            "• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •",
-                            url="https://t.me/+HUIqsxBkZtxhNTA1"
-                        )
+                    buttons.extend([
+                        [InlineKeyboardButton("• 𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 •", url=link)],
+                        [InlineKeyboardButton("• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •", url="https://t.me/+HUIqsxBkZtxhNTA1")]
                     ])
                     count += 1
                     await temp.edit(
-                        f"<b>{'! ' * count}</b>",
-                        reply_markup=InlineKeyboardMarkup(buttons)
+                        f"<b>{'! ' * count}</b>", reply_markup=InlineKeyboardMarkup(buttons)
                     )
                     
                 except Exception as e:
