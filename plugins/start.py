@@ -197,6 +197,7 @@ async def not_joined(client: Client, message: Message):
                     buttons.append([InlineKeyboardButton(text=name, url=link)])
                     count += 1
                     await temp.edit(f"<b>{'! ' * count}</b>")
+                    buttons.append([InlineKeyboardButton("• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •", url="https://t.me/+HUIqsxBkZtxhNTA1")])
 
                 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
