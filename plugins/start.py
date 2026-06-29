@@ -194,14 +194,9 @@ async def not_joined(client: Client, message: Message):
                                 expire_date=datetime.utcnow() + timedelta(seconds=FSUB_LINK_EXPIRY) if FSUB_LINK_EXPIRY else None)
                             link = invite.invite_link
 
-                    buttons = []
-                    for name, link in channels:
-                        buttons.append([
-                            InlineKeyboardButton(text=name, url=link)])
-                            count += 1
-                            await temp.edit(f"<b>{'! ' * count}</b>")
-
-                    # Add this only once, after the loop
+                    buttons.append([InlineKeyboardButton(text=name, url=link)])
+                    count += 1
+                    await temp.edit(f"<b>{'! ' * count}</b>")
                     buttons.append([InlineKeyboardButton("• ᴍᴏʀᴇ ᴄʜᴀɴɴᴇʟs •", url="https://t.me/+HUIqsxBkZtxhNTA1")])
 
                 except Exception as e:
