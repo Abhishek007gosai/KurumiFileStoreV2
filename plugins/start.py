@@ -206,13 +206,6 @@ async def not_joined(client: Client, message: Message):
                 except Exception as e:
                     print(f"Error with chat {chat_id}: {e}")
 
-        # This button appears ONLY ONCE
-        buttons.append([
-            InlineKeyboardButton(
-                "• 𝙹𝙾𝙸𝙽 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 •",
-                url="https://t.me/+HUIqsxBkZtxhNTA1"
-            )
-        ])
 
         # Try Again button
         try:
