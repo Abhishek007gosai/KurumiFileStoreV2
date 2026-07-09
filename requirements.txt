@@ -5,15 +5,15 @@ schedule
 APScheduler
 
 # Database
-pymongo
-motor
-dnspython
+pymongo>=4.10,<5.0
+motor>=3.6
+dnspython>=2.7
 
 # HTTP
 aiohttp
 python-dotenv
 requests
-bs4
+beautifulsoup4
 aiofiles
 
 # Timezone
