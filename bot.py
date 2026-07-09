@@ -4,22 +4,21 @@ import asyncio
 import pyromod.listen
 from pyrogram import Client
 from pyrogram.enums import ParseMode
-import sys
-import pytz
+import sys, pytz
 from datetime import datetime
-
+#rohit_1888 on Tg
 from config import *
 
 
-name = """
-BY CODEFLIX BOTS
+name ="""
+ BY CODEFLIX BOTS
 """
-
 
 def get_indian_time():
     """Returns the current time in IST."""
     ist = pytz.timezone("Asia/Kolkata")
     return datetime.now(ist)
+
 
 
 class Bot(Client):
@@ -34,127 +33,62 @@ class Bot(Client):
             workers=TG_BOT_WORKERS,
             bot_token=TG_BOT_TOKEN
         )
-
         self.LOGGER = LOGGER
-        self.web_app = None
-        self.web_runner = None
 
     async def start(self):
         await super().start()
-
-        bot_info = await self.get_me()
+        usr_bot_me = await self.get_me()
         self.uptime = get_indian_time()
-        self.username = bot_info.username
 
-        # Check database channel
         try:
             db_channel = await self.get_chat(CHANNEL_ID)
             self.db_channel = db_channel
-
-            test_msg = await self.send_message(
-                chat_id=db_channel.id,
-                text="Bot Started Successfully"
-            )
-
-            await test_msg.delete()
-
+            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+            await test.delete()
         except Exception as e:
-            self.LOGGER(__name__).warning(str(e))
-            self.LOGGER(__name__).warning(
-                f"Make sure bot is admin in DB Channel.\n"
-                f"Check CHANNEL_ID value: {CHANNEL_ID}"
-            )
-            self.LOGGER(__name__).info(
-                "Bot stopped. Join https://t.me/CodeflixSupport for support"
-            )
+            self.LOGGER(__name__).warning(e)
+            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
+            self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/CodeflixSupport for support")
             sys.exit()
 
         self.set_parse_mode(ParseMode.HTML)
+        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \nhttps://t.me/CodeflixSupport")
+        self.LOGGER(__name__).info(f"""BOT DEPLOYED BY""")
 
-        self.LOGGER(__name__).info(
-            f"""
-Bot Running Successfully!
-
-Username: @{self.username}
-
-Created By:
-@Codeflix_Bots
-"""
-        )
+        self.set_parse_mode(ParseMode.HTML)
+        self.username = usr_bot_me.username
+        self.LOGGER(__name__).info(f"Bot Running..! Made by @Codeflix_Bots")   
 
         # Start Web Server
-        try:
-            self.web_app = await web_server()
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        await web.TCPSite(app, "0.0.0.0", PORT).start()
 
-            self.web_runner = web.AppRunner(self.web_app)
-            await self.web_runner.setup()
 
-            site = web.TCPSite(
-                self.web_runner,
-                "0.0.0.0",
-                PORT
-            )
-
-            await site.start()
-
-            self.LOGGER(__name__).info(
-                f"Web Server Started On Port {PORT}"
-            )
-
-        except Exception as e:
-            self.LOGGER(__name__).error(
-                f"Web Server Error: {e}"
-            )
-
-        # Notify owner
-        try:
-            await self.send_message(
-                OWNER_ID,
-                text="<b><blockquote>Bot Restarted Successfully</blockquote></b>"
-            )
-        except Exception:
-            pass
-
+        try: await self.send_message(OWNER_ID, text = f"<b><blockquote> Bᴏᴛ Rᴇsᴛᴀʀᴛᴇᴅ</blockquote></b>")
+        except: pass
 
     async def stop(self, *args):
-        try:
-            if self.web_runner:
-                await self.web_runner.cleanup()
-        except Exception:
-            pass
-
         await super().stop()
-
-        self.LOGGER(__name__).info(
-            "Bot stopped."
-        )
-
+        self.LOGGER(__name__).info("Bot stopped.")
 
     def run(self):
+        """Run the bot."""
         loop = asyncio.get_event_loop()
-
+        loop.run_until_complete(self.start())
+        self.LOGGER(__name__).info("Bot is now running. Thanks to @rohit_1888")
         try:
-            loop.run_until_complete(self.start())
-
-            self.LOGGER(__name__).info(
-                "Bot is now running."
-            )
-
             loop.run_forever()
-
         except KeyboardInterrupt:
-            self.LOGGER(__name__).info(
-                "Shutting down..."
-            )
-
-        except Exception as e:
-            self.LOGGER(__name__).error(
-                f"Runtime Error: {e}"
-            )
-
+            self.LOGGER(__name__).info("Shutting down...")
         finally:
             loop.run_until_complete(self.stop())
 
-
-if __name__ == "__main__":
-    Bot().run()
+#
+# Copyright (C) 2025 by Codeflix-Bots@Github, < https://github.com/Codeflix-Bots >.
+#
+# This file is part of < https://github.com/Codeflix-Bots/FileStore > project,
+# and is released under the MIT License.
+# Please see < https://github.com/Codeflix-Bots/FileStore/blob/master/LICENSE >
+#
+# All rights reserved.
