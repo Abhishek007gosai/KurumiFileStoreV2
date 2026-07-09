@@ -18,9 +18,9 @@ from logging.handlers import RotatingFileHandler
 #rohit_1888 on Tg
 #--------------------------------------------
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "8032524555:AAGPZlM_jjnk1kvduEm7PxeHp7PxeQyBTOk")
-APP_ID = int(os.environ.get("APP_ID", "23537462")) #Your API ID from my.telegram.org
-API_HASH = os.environ.get("API_HASH", "c9599a5aa61ee8ca4f5e778d20c61f24") #Your API Hash from my.telegram.org
+TG_BOT_TOKEN = "8032524555:AAGPZlM_jjnk1kvduEm7PxeHp7PxeQyBTOk"
+APP_ID = 23537462 #Your API ID from my.telegram.org
+API_HASH = "c9599a5aa61ee8ca4f5e778d20c61f24" #Your API Hash from my.telegram.org
 #--------------------------------------------
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1003928914916")) #Your db channel Id
@@ -29,8 +29,8 @@ OWNER_ID = int(os.environ.get("OWNER_ID", "8771195193")) # Owner id
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
 #--------------------------------------------
-DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://kayaxrobot:DCfWcHAOIjMDPWCk@cluster0.ltk8k8h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DB_NAME = os.environ.get("DATABASE_NAME", "cluster0")
+DB_URI = "mongodb+srv://kayaxrobot:DCfWcHAOIjMDPWCk@cluster0.ltk8k8h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+DB_NAME = "cluster0"
 #--------------------------------------------
 FSUB_LINK_EXPIRY = int(os.getenv("FSUB_LINK_EXPIRY", "120"))  # 0 means no expiry
 BAN_SUPPORT = os.environ.get("BAN_SUPPORT", "https://t.me/EternalsHelplineBot")
