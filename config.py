@@ -9,7 +9,7 @@ OWNER_ID = 7654385403
 MSG_EFFECT = 5046509860389126442
 
 SHORT_URL = "shortxlinks.com/" # shortner url 
-SHORT_API = "mongodb+srv://kaya:tYB6OCayauMg1Qjr@cluster0.ltk8k8h.mongodb.net/?appName=Cluster0" 
+SHORT_API = "" 
 SHORT_TUT = "https://t.me/+wekKcN1tjbAxY2U1"
 
 # Bot Configuration
@@ -19,7 +19,7 @@ API_ID = "29245477"
 API_HASH = "0abc83883262245c90ca337b7a0375c4"
 WORKERS = 5
 
-DB_URI = ""
+DB_URI = "mongodb+srv://kaya:tYB6OCayauMg1Qjr@cluster0.ltk8k8h.mongodb.net/?appName=Cluster0"
 DB_NAME = "cluster0"
 
 FSUBS = [[-1001457313028, True, 10]] # Force Subscription Channels [channel_id, request_enabled, timer_in_minutes]
