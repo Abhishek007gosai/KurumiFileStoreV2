@@ -9,12 +9,12 @@ OWNER_ID = 7654385403
 MSG_EFFECT = 5046509860389126442
 
 SHORT_URL = "shortxlinks.com/" # shortner url 
-SHORT_API = "" 
+SHORT_API = "mongodb+srv://kaya:tYB6OCayauMg1Qjr@cluster0.ltk8k8h.mongodb.net/?appName=Cluster0" 
 SHORT_TUT = "https://t.me/+wekKcN1tjbAxY2U1"
 
 # Bot Configuration
 SESSION = "Kaya"
-TOKEN = ""
+TOKEN = "8691693420:AAFh7uKq1WGnGuj6HFyexEtgdFz_kx1ruiw"
 API_ID = "29245477"
 API_HASH = "0abc83883262245c90ca337b7a0375c4"
 WORKERS = 5
