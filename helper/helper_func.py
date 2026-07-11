@@ -428,7 +428,7 @@ async def auto_del_notification(bot_username, msg, delay_time, transfer):
     try:
         if transfer:
             try:
-                name = "• ɢᴇᴛ ғɪʟᴇs •"
+                name = "• ɢᴇᴛ ᴀɢᴀɪɴ •"
                 link = f"https://t.me/{bot_username}?start={transfer}"
                 button = [[InlineKeyboardButton(text=name, url=link), InlineKeyboardButton(text="ᴄʟᴏsᴇ •", callback_data = "close")]]
 
