@@ -169,9 +169,36 @@ class Bot(Client):
         self.LOGGER(__name__, self.name).info("Bot stopped.")
 
 
+async def health(request):
+    return web.Response(
+        text="Bot is Alive!",
+        status=200,
+        headers={"Content-Type": "text/plain"}
+    )
+
+
 async def web_app():
-    app = web.AppRunner(await web_server())
-    await app.setup()
-    bind_address = "0.0.0.0"
-    await web.TCPSite(app, bind_address, PORT).start()
-    
+    app = web.Application()
+
+    # Health check routes
+    app.router.add_get("/", health)
+    app.router.add_get("/health", health)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+
+    site = web.TCPSite(
+        runner,
+        host="0.0.0.0",
+        port=PORT
+    )
+
+    await site.start()
+
+    LOGGER(__name__, "WEB").info(
+        f"Health Check Server Started on Port {PORT}"
+    )
+
+    # Keep server alive
+    while True:
+        await asyncio.sleep(3600)
