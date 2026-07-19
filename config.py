@@ -26,8 +26,7 @@ DB_URI = os.getenv("DB_URI", "")
 DB_NAME = os.getenv("DB_NAME", "cluster0")
 
 # Channels
-DB_CHANNEL = int(os.getenv("DB_CHANNEL", "0"))
-
+DB_CHANNEL =  -1002497924209
 # Force Subscribe
 FSUB_CHANNEL = int(os.getenv("FSUB_CHANNEL", "0"))
 FSUB_REQUEST = os.getenv("FSUB_REQUEST", "True").lower() == "true"
