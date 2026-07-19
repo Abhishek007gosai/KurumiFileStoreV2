@@ -1,7 +1,5 @@
-#(©) Codeflix_Bots
-
+import asyncio
 from aiohttp import web
-from plugins import web_server
 
 from pyrogram import Client
 from pyrogram.enums import ParseMode
@@ -168,7 +166,6 @@ class Bot(Client):
         await super().stop()
         self.LOGGER(__name__, self.name).info("Bot stopped.")
 
-
 async def health(request):
     return web.Response(
         text="Bot is Alive!",
@@ -180,7 +177,6 @@ async def health(request):
 async def web_app():
     app = web.Application()
 
-    # Health check routes
     app.router.add_get("/", health)
     app.router.add_get("/health", health)
 
@@ -199,6 +195,5 @@ async def web_app():
         f"Health Check Server Started on Port {PORT}"
     )
 
-    # Keep server alive
     while True:
         await asyncio.sleep(3600)
