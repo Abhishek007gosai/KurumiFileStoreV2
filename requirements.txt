@@ -7,4 +7,5 @@ motor
 markdown
 asyncio
 TgCrypto
+flask
 requests
