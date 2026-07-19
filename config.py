@@ -17,8 +17,8 @@ SHORT_TUT = os.getenv("SHORT_TUT", "")
 # Telegram
 SESSION = os.getenv("SESSION", "Kaya")
 TOKEN = os.getenv("BOT_TOKEN", "")
-API_ID = int(os.getenv("API_ID", "0"))
-API_HASH = os.getenv("API_HASH", "")
+API_ID = int(os.getenv("API_ID", "29245477"))
+API_HASH = os.getenv("API_HASH", "0abc83883262245c90ca337b7a0375c4")
 WORKERS = int(os.getenv("WORKERS", "5"))
 
 # MongoDB
